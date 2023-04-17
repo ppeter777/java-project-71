@@ -1,4 +1,4 @@
-name: hello-world
+name: My Actions
 # on – определяет события, которые запускают воркфлоу
 on: push
 jobs:
@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: My Checks
         uses: actions/checkout@v3
-      - run: make build
+      - run: make run-dist
