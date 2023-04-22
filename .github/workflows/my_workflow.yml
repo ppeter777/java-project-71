@@ -4,7 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: My Checks
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
