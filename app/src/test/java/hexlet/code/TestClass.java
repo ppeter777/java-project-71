@@ -1,3 +1,5 @@
+package hexlet.code;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import hexlet.code.Differ;
@@ -17,16 +19,16 @@ public class TestClass {
         String expected = "{\n   key1: 1\n}";
         assertEquals(expected, actual);
     }
-//    @Test
-//    void modificationTest() {
-//        Map<String, Object> input1 = new HashMap<>();
-//        input1.put("key1", "1");
-//        Map<String, Object> input2 = new HashMap<>();
-//        input2.put("key1", "11");
-//        String actual = Differ.genDiff(input1, input2);
-//        String expected = "{\n - key1: 1\n + key1: 11\n}";
-//        assertEquals(actual, expected);
-//    }
+    @Test
+    void modificationTest() {
+        Map<String, Object> input1 = new HashMap<>();
+        input1.put("key1", "1");
+        Map<String, Object> input2 = new HashMap<>();
+        input2.put("key1", "11");
+        String actual = Differ.genDiff(input1, input2);
+        String expected = "{\n - key1: 1\n + key1: 11\n}";
+        assertEquals(actual, expected);
+    }
     @Test
     void additionTest() {
         Map<String, Object> input1 = new HashMap<>();
