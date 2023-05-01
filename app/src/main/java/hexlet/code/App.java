@@ -47,40 +47,11 @@ class App implements Callable {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
-
     @Override
     public Object call() throws Exception {
-        Path path1 = file1.toPath();
-        Path path2 = file2.toPath();
-        String content1 = Files.readString(path1);
-        String content2 = Files.readString(path2);
-        var file1Extension = FilenameUtils.getExtension(file1.getName());
-        var file2Extension = FilenameUtils.getExtension(file2.getName());
-        if (file1Extension.equals("json") && file2Extension.equals("json")) {
-            System.out.println("JSON detected!");
-            ObjectMapper jsonObjectMapper = new ObjectMapper();
-            var typeReference1 = new TypeReference<TreeMap<String, Object>>() { };
-            var typeReference2 = new TypeReference<TreeMap<String, Object>>() { };
-            Map<String, Object> mapFile1 = jsonObjectMapper.readValue(content1, typeReference1);
-            Map<String, Object> mapFile2 = jsonObjectMapper.readValue(content2, typeReference2);
-
-            System.out.println("file1 \n" + mapFile1 + "\n");
-            System.out.println("file2 \n" + mapFile2);
-            System.out.println(Differ.genDiff(mapFile1, mapFile2));
-        } else if (file1Extension.equals("yaml") && file2Extension.equals("yaml")) {
-            System.out.println("YAML detected!");
-            ObjectMapper yamlObjectMapper = new YAMLMapper();
-            var typeReference1 = new TypeReference<TreeMap<String, Object>>() { };
-            var typeReference2 = new TypeReference<TreeMap<String, Object>>() { };
-            Map<String, Object> mapFile1 = yamlObjectMapper.readValue(content1, typeReference1);
-            Map<String, Object> mapFile2 = yamlObjectMapper.readValue(content2, typeReference2);
-
-            System.out.println("file1 \n" + mapFile1 + "\n");
-            System.out.println("file2 \n" + mapFile2);
-            System.out.println(Differ.genDiff(mapFile1, mapFile2));
-        } else {
-            System.out.println("Both file extensions must be either .json or .yaml");
-        }
+        var mapFile1 = Parser.parse(file1);
+        var mapFile2 = Parser.parse(file2);
+        System.out.println(Differ.genDiff(mapFile1, mapFile2));
         return null;
     }
 }

@@ -27,7 +27,7 @@ public class Differ {
         keys.addAll(mapFile1.keySet());
         keys.addAll(mapFile2.keySet());
 
-        System.out.println("keys:\n" + keys + "\n");
+//        System.out.println("keys:\n" + keys + "\n");
         StringBuilder stringBuilder = new StringBuilder().append("{\n");
         for (var key: keys) {
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
