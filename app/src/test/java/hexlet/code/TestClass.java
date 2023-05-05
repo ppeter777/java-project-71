@@ -4,10 +4,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestClass {
+    @Test
+    public void parserJSONTest() throws IOException {
+        File file = new File("/home/ppeter777/java-project-71/app/src/test/resources/file3.json");
+        Map<String, Object> expected = new HashMap<>();
+        expected.put("key1", "1");
+        expected.put("key2", "2");
+        expected.put("key3", "3");
+        var actual = Parser.parse(file);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void parserYAMLTest() throws IOException {
+        File file = new File("/home/ppeter777/java-project-71/app/src/test/resources/file1.yaml");
+        Map<String, Object> expected = new HashMap<>();
+        expected.put("name", "project2");
+        expected.put("host", "hexlet.io");
+        expected.put("timeout", 50);
+        var actual = Parser.parse(file);
+        assertEquals(expected, actual);
+    }
     @Test
     public void unchangedTest() {
         Map<String, Object> input1 = new HashMap<>();
