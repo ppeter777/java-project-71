@@ -12,7 +12,7 @@ import java.util.Map;
 public class TestClass {
     @Test
     public void parserJSONTest() throws IOException {
-        File file = new File("/home/ppeter777/java-project-71/app/src/test/resources/file3.json");
+        File file = new File("src/test/resources/file3.json");
         Map<String, Object> expected = new HashMap<>();
         expected.put("key1", "1");
         expected.put("key2", "2");
@@ -22,7 +22,7 @@ public class TestClass {
     }
     @Test
     public void parserYAMLTest() throws IOException {
-        File file = new File("/home/ppeter777/java-project-71/app/src/test/resources/file1.yaml");
+        File file = new File("src/test/resources/file1.yaml");
         Map<String, Object> expected = new HashMap<>();
         expected.put("name", "project2");
         expected.put("host", "hexlet.io");
