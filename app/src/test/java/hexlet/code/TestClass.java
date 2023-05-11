@@ -11,6 +11,22 @@ import java.util.Map;
 
 public class TestClass {
     @Test
+    public void differ() throws IOException {
+        File file1 = new File("src/test/resources/file3.json");
+        File file2 = new File("src/test/resources/file4.json");
+        String expected = "{\n" +
+                "   key1: 1\n" +
+                " - key2: 2\n" +
+                " + key2: 22\n" +
+                " - key3: 3\n" +
+                "}";
+        var mapFile1 = Parser.parse(file1);
+        var mapFile2 = Parser.parse(file2);
+        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void parserJSONTest() throws IOException {
         File file = new File("src/test/resources/file3.json");
         Map<String, Object> expected = new HashMap<>();
