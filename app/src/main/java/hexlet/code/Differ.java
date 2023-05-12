@@ -16,13 +16,16 @@ public class Differ {
             var value2 = mapFile2.get(key);
             String value1String;
             String value2String;
-            
             if (value1 == null) {
                 value1String = "null";
-            } else value1String = mapFile1.get(key).toString();
+            } else {
+                value1String = mapFile1.get(key).toString();
+            }
             if (value2 == null) {
                 value2String = "null";
-            } else value2String = mapFile2.get(key).toString();
+            } else {
+                value2String = mapFile2.get(key).toString();
+            }
 
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
                 if (value1String.equals(value2String)) {
