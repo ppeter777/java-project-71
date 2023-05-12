@@ -11,15 +11,87 @@ import java.util.Map;
 
 public class TestClass {
     @Test
-    public void differ() throws IOException {
+    public void differFlat() throws IOException {
         File file1 = new File("src/test/resources/file3.json");
         File file2 = new File("src/test/resources/file4.json");
-        String expected = "{\n"
-                + "   key1: 1\n"
-                + " - key2: 2\n"
-                + " + key2: 22\n"
-                + " - key3: 3\n"
-                + "}";
+        String expected = """
+                {
+                   key1: 1
+                 - key2: 2
+                 + key2: 22
+                 - key3: 3
+                }""";
+        var mapFile1 = Parser.parse(file1);
+        var mapFile2 = Parser.parse(file2);
+        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void differNestedJSON() throws IOException {
+        File file1 = new File("src/test/resources/file1Nested.json");
+        File file2 = new File("src/test/resources/file2Nested.json");
+        String expected = """
+                {
+                   chars1: [a, b, c]
+                 - chars2: [d, e, f]
+                 + chars2: false
+                 - checked: false
+                 + checked: true
+                 - default: null
+                 + default: [value1, value2]
+                 - id: 45
+                 + id: null
+                 - key1: value1
+                 + key2: value2
+                   numbers1: [1, 2, 3, 4]
+                 - numbers2: [2, 3, 4, 5]
+                 + numbers2: [22, 33, 44, 55]
+                 - numbers3: [3, 4, 5]
+                 + numbers4: [4, 5, 6]
+                 + obj1: {nestedKey=value, isNested=true}
+                 - setting1: Some value
+                 + setting1: Another value
+                 - setting2: 200
+                 + setting2: 300
+                 - setting3: true
+                 + setting3: none
+                }""";
+        var mapFile1 = Parser.parse(file1);
+        var mapFile2 = Parser.parse(file2);
+        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void differNestedYAML() throws IOException {
+        File file1 = new File("src/test/resources/file1Nested.yaml");
+        File file2 = new File("src/test/resources/file2Nested.yaml");
+        String expected = """
+                {
+                   chars1: [a, b, c]
+                 - chars2: [d, e, f]
+                 + chars2: false
+                 - checked: false
+                 + checked: true
+                 - default: null
+                 + default: [value1, value2]
+                 - id: 45
+                 + id: null
+                 - key1: value1
+                 + key2: value2
+                   numbers1: [1, 2, 3, 4]
+                 - numbers2: [2, 3, 4, 5]
+                 + numbers2: [22, 33, 44, 55]
+                 - numbers3: [3, 4, 5]
+                 + numbers4: [4, 5, 6]
+                 + obj1: {nestedKey=value, isNested=true}
+                 - setting1: Some value
+                 + setting1: Another value
+                 - setting2: 200
+                 + setting2: 300
+                 - setting3: true
+                 + setting3: none
+                }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
         var actual = (Differ.genDiff(mapFile1, mapFile2));
