@@ -23,7 +23,7 @@ public class TestClass {
                 }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        var actual = Differ.genDiff(mapFile1, mapFile2);
         assertEquals(expected, actual);
     }
     @Test
@@ -58,7 +58,7 @@ public class TestClass {
                 }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        var actual = Differ.genDiff(mapFile1, mapFile2);
         assertEquals(expected, actual);
     }
 
@@ -94,7 +94,7 @@ public class TestClass {
                 }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-        var actual = (Differ.genDiff(mapFile1, mapFile2));
+        var actual = Differ.genDiff(mapFile1, mapFile2);
         assertEquals(expected, actual);
     }
 
@@ -136,7 +136,7 @@ public class TestClass {
         input2.put("key1", "11");
         String actual = Differ.genDiff(input1, input2);
         String expected = "{\n - key1: 1\n + key1: 11\n}";
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
     @Test
     void additionTest() {
