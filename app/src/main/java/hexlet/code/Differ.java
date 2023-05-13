@@ -2,7 +2,6 @@ package hexlet.code;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Differ {
