@@ -17,21 +17,26 @@ public class Differ {
             String value1String = valueToString(value1);
             String value2String = valueToString(value2);
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
-                if (value1String.equals(value2String)) {
-                    // stringBuilder.append("   ").append(key).append(": ").append(value1String).append("\n");
-                    addLine(stringBuilder, "   ", key, value1String);
-                } else {
-                    addLine(stringBuilder, " - ", key, value1String);
-                    addLine(stringBuilder, " + ", key, value2String);
-                }
+                keyInBothFiles(stringBuilder, key, value1String, value2String);
             } else if (mapFile1.containsKey(key)) {
-                addLine(stringBuilder, " - ", key, value1String);
+                keyInOneFile(stringBuilder, " - ", key, value1String);
             } else {
-                addLine(stringBuilder, " + ", key, value2String);
+                keyInOneFile(stringBuilder, " + ", key, value2String);
             }
         }
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+    public static void keyInBothFiles(StringBuilder stringBuilder, String key, String value1String, String value2String) {
+        if (value1String.equals(value2String)) {
+            addLine(stringBuilder, "   ", key, value1String);
+        } else {
+            addLine(stringBuilder, " - ", key, value1String);
+            addLine(stringBuilder, " + ", key, value2String);
+        }
+    }
+    public static void keyInOneFile(StringBuilder stringBuilder, String tag, String key, String valueString) {
+        addLine(stringBuilder, tag, key, valueString);
     }
     public static void addLine(StringBuilder stringBuilder, String tag, String key, String valueString) {
         stringBuilder.append(tag).append(key).append(": ").append(valueString).append("\n");
