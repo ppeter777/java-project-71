@@ -27,19 +27,19 @@ public class Differ {
         stringBuilder.append("}");
         return stringBuilder.toString();
     }
-    public static void keyInBothFiles(StringBuilder stringBuilder, String key, String value1String, String value2String) {
-        if (value1String.equals(value2String)) {
-            addLine(stringBuilder, "   ", key, value1String);
+    public static void keyInBothFiles(StringBuilder stringBuilder, String key, String value1, String value2) {
+        if (value1.equals(value2)) {
+            addLine(stringBuilder, "   ", key, value1);
         } else {
-            addLine(stringBuilder, " - ", key, value1String);
-            addLine(stringBuilder, " + ", key, value2String);
+            addLine(stringBuilder, " - ", key, value1);
+            addLine(stringBuilder, " + ", key, value2);
         }
     }
-    public static void keyInOneFile(StringBuilder stringBuilder, String tag, String key, String valueString) {
-        addLine(stringBuilder, tag, key, valueString);
+    public static void keyInOneFile(StringBuilder stringBuilder, String tag, String key, String value) {
+        addLine(stringBuilder, tag, key, value);
     }
-    public static void addLine(StringBuilder stringBuilder, String tag, String key, String valueString) {
-        stringBuilder.append(tag).append(key).append(": ").append(valueString).append("\n");
+    public static void addLine(StringBuilder stringBuilder, String tag, String key, String value) {
+        stringBuilder.append(tag).append(key).append(": ").append(value).append("\n");
     }
     public static String valueToString(Object value) {
         if (value == null) {
