@@ -1,27 +1,26 @@
 package hexlet.code;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
-    public static String genDiff(Map mapFile1, Map mapFile2) {
+    public static String genDiff(Map<String,Object> mapFile1, Map<String,Object> mapFile2) {
         Set<String> keys = new TreeSet<>();
         keys.addAll(mapFile1.keySet());
         keys.addAll(mapFile2.keySet());
 
         StringBuilder stringBuilder = new StringBuilder().append("{\n");
         for (var key: keys) {
-            Object value1 = mapFile1.get(key);
-            Object value2 = mapFile2.get(key);
-            String value1String = valueToString(value1);
-            String value2String = valueToString(value2);
+            var value1 = valueToString(mapFile1.get(key));
+            var value2 = valueToString(mapFile2.get(key));
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
-                keyInBothFiles(stringBuilder, key, value1String, value2String);
+                keyInBothFiles(stringBuilder, key, value1, value2);
             } else if (mapFile1.containsKey(key)) {
-                keyInOneFile(stringBuilder, " - ", key, value1String);
+                keyInOneFile(stringBuilder, " - ", key, value1);
             } else {
-                keyInOneFile(stringBuilder, " + ", key, value2String);
+                keyInOneFile(stringBuilder, " + ", key, value2);
             }
         }
         stringBuilder.append("}");

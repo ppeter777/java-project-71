@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Parser {
-    public static Map parse(File file) throws IOException {
+    public static Map<String,Object> parse(File file) throws IOException {
         Path path = file.toPath();
         String fileString = Files.readString(path);
         var fileExtension = FilenameUtils.getExtension(file.getName());
