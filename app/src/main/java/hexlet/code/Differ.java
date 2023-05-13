@@ -18,19 +18,23 @@ public class Differ {
             String value2String = valueToString(value2);
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
                 if (value1String.equals(value2String)) {
-                    stringBuilder.append("   ").append(key).append(": ").append(value1String).append("\n");
+                    // stringBuilder.append("   ").append(key).append(": ").append(value1String).append("\n");
+                    addLine(stringBuilder, "   ", key, value1String);
                 } else {
-                    stringBuilder.append(" - ").append(key).append(": ").append(value1String).append("\n");
-                    stringBuilder.append(" + ").append(key).append(": ").append(value2String).append("\n");
+                    addLine(stringBuilder, " - ", key, value1String);
+                    addLine(stringBuilder, " + ", key, value2String);
                 }
             } else if (mapFile1.containsKey(key)) {
-                stringBuilder.append(" - ").append(key).append(": ").append(value1String).append("\n");
+                addLine(stringBuilder, " - ", key, value1String);
             } else {
-                stringBuilder.append(" + ").append(key).append(": ").append(value2String).append("\n");
+                addLine(stringBuilder, " + ", key, value2String);
             }
         }
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+    public static void addLine(StringBuilder stringBuilder, String tag, String key, String valueString) {
+        stringBuilder.append(tag).append(key).append(": ").append(valueString).append("\n");
     }
     public static String valueToString(Object value) {
         if (value == null) {
