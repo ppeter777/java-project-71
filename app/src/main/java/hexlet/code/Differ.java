@@ -2,6 +2,7 @@ package hexlet.code;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Differ {
@@ -12,21 +13,10 @@ public class Differ {
 
         StringBuilder stringBuilder = new StringBuilder().append("{\n");
         for (var key: keys) {
-            var value1 = mapFile1.get(key);
-            var value2 = mapFile2.get(key);
-            String value1String;
-            String value2String;
-            if (value1 == null) {
-                value1String = "null";
-            } else {
-                value1String = mapFile1.get(key).toString();
-            }
-            if (value2 == null) {
-                value2String = "null";
-            } else {
-                value2String = mapFile2.get(key).toString();
-            }
-
+            Object value1 = mapFile1.get(key);
+            Object value2 = mapFile2.get(key);
+            String value1String = valueToString(value1);
+            String value2String = valueToString(value2);
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
                 if (value1String.equals(value2String)) {
                     stringBuilder.append("   ").append(key).append(": ").append(value1String).append("\n");
@@ -42,5 +32,12 @@ public class Differ {
         }
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+    public static String valueToString(Object value) {
+        if (value == null) {
+            return "null";
+        } else {
+            return value.toString();
+        }
     }
 }
