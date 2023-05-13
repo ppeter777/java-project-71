@@ -1,12 +1,11 @@
 package hexlet.code;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
-    public static String genDiff(Map<String,Object> mapFile1, Map<String,Object> mapFile2) {
+    public static String genDiff(Map<String, Object> mapFile1, Map<String, Object> mapFile2) {
         Set<String> keys = new TreeSet<>();
         keys.addAll(mapFile1.keySet());
         keys.addAll(mapFile2.keySet());
