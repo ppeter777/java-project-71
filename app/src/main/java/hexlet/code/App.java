@@ -32,9 +32,7 @@ class App implements Callable {
     public Object call() throws Exception {
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-
         var diff = Differ.genDiff(mapFile1, mapFile2);
-        System.out.println(diff);
         if (format.equals("stylish")) {
             System.out.println(Formatter.formatStylish(diff));
         }
