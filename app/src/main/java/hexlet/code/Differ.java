@@ -12,8 +12,16 @@ public class Differ {
             var value1 = mapFile1.get(key);
             var value2 = mapFile2.get(key);
             List<Object> diffLine = new ArrayList<>();
-            diffLine.add(valueToString(value1));
-            diffLine.add(valueToString(value2));
+            if (!mapFile1.containsKey(key)) {
+                diffLine.add(null);
+            } else {
+                diffLine.add(valueToString(value1));
+            }
+            if (!mapFile2.containsKey(key)) {
+                diffLine.add(null);
+            } else {
+                diffLine.add(valueToString(value2));
+            }
             diff.put(key, diffLine);
         }
         return diff;
