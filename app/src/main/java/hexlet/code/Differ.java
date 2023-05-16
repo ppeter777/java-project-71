@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Differ {
     public static Map<String, List<Object>> genDiff(Map<String, Object> mapFile1, Map<String, Object> mapFile2) {
@@ -33,8 +38,4 @@ public class Differ {
             return value.toString();
         }
     }
-
-
-
-
 }

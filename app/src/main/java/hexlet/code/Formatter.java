@@ -11,7 +11,7 @@ public class Formatter {
             var value1 = item.getValue().get(0);
             var value2 = item.getValue().get(1);
             if ((item.getValue().get(0) != null) && (item.getValue().get(1) != null)) {
-                    keyInBothFiles(stringBuilder, key, value1, value2);
+                keyInBothFiles(stringBuilder, key, value1, value2);
             } else if (item.getValue().get(1) == null) {
                 keyInOneFile(stringBuilder, " - ", key, value1);
             } else {
