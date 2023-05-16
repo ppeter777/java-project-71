@@ -36,6 +36,9 @@ class App implements Callable {
         if (format.equals("stylish")) {
             System.out.println(Formatter.formatStylish(diff));
         }
+        if (format.equals("plain")) {
+            System.out.println(Formatter.formatPlain(diff));
+        }
         return null;
     }
 }

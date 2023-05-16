@@ -17,15 +17,24 @@ public class Differ {
             var value1 = mapFile1.get(key);
             var value2 = mapFile2.get(key);
             List<Object> diffLine = new ArrayList<>();
-            if (!mapFile1.containsKey(key)) {
+            if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
+                if (valueToString(value1).equals(valueToString(value2))) {
+                    diffLine.add("unchanged");
+                    diffLine.add(value1);
+                    diffLine.add(value2);
+                } else {
+                    diffLine.add("changed");
+                    diffLine.add(value1);
+                    diffLine.add(value2);
+                }
+            } else if (!mapFile2.containsKey(key)) {
+                diffLine.add("deleted");
+                diffLine.add(value1);
                 diffLine.add(null);
             } else {
-                diffLine.add(valueToString(value1));
-            }
-            if (!mapFile2.containsKey(key)) {
+                diffLine.add("added");
                 diffLine.add(null);
-            } else {
-                diffLine.add(valueToString(value2));
+                diffLine.add(value2);
             }
             diff.put(key, diffLine);
         }
