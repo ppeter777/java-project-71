@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import static hexlet.code.Differ.genDiff;
+import static hexlet.code.Formatter.formatStylish;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -10,22 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestClass {
-    @Test
-    public void differFlat() throws IOException {
-        File file1 = new File("src/test/resources/file3.json");
-        File file2 = new File("src/test/resources/file4.json");
-        String expected = """
-                {
-                   key1: 1
-                 - key2: 2
-                 + key2: 22
-                 - key3: 3
-                }""";
-        var mapFile1 = Parser.parse(file1);
-        var mapFile2 = Parser.parse(file2);
-        var actual = Differ.genDiff(mapFile1, mapFile2);
-        assertEquals(expected, actual);
-    }
+
     @Test
     public void differNestedJSON() throws IOException {
         File file1 = new File("src/test/resources/file1Nested.json");
@@ -58,7 +45,7 @@ public class TestClass {
                 }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-        var actual = Differ.genDiff(mapFile1, mapFile2);
+        var actual = formatStylish(genDiff(mapFile1, mapFile2));
         assertEquals(expected, actual);
     }
 
@@ -94,7 +81,7 @@ public class TestClass {
                 }""";
         var mapFile1 = Parser.parse(file1);
         var mapFile2 = Parser.parse(file2);
-        var actual = Differ.genDiff(mapFile1, mapFile2);
+        var actual = formatStylish(genDiff(mapFile1, mapFile2));
         assertEquals(expected, actual);
     }
 
@@ -124,7 +111,7 @@ public class TestClass {
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "1");
-        String actual = Differ.genDiff(input1, input2);
+        String actual = formatStylish(genDiff(input1, input2));
         String expected = "{\n   key1: 1\n}";
         assertEquals(expected, actual);
     }
@@ -134,7 +121,7 @@ public class TestClass {
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "11");
-        String actual = Differ.genDiff(input1, input2);
+        String actual = formatStylish(genDiff(input1, input2));
         String expected = "{\n - key1: 1\n + key1: 11\n}";
         assertEquals(expected, actual);
     }
@@ -145,7 +132,7 @@ public class TestClass {
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "1");
         input2.put("key3", "3");
-        String actual = Differ.genDiff(input1, input2);
+        String actual = formatStylish(genDiff(input1, input2));
         String expected = "{\n   key1: 1\n + key3: 3\n}";
         assertEquals(expected, actual);
     }
@@ -157,7 +144,7 @@ public class TestClass {
         input1.put("key2", "2");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key2", "2");
-        String actual = Differ.genDiff(input1, input2);
+        String actual = formatStylish(genDiff(input1, input2));
         String expected = "{\n - key1: 1\n   key2: 2\n}";
         assertEquals(expected, actual);
     }
