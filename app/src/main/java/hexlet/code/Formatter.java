@@ -15,6 +15,6 @@ public class Formatter {
         if (format.equals("plain")) {
             return Plain.formatPlain(diff);
         }
-    return null;
+        return null;
     }
 }
