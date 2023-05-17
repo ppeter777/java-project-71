@@ -1,9 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.Utils;
-import hexlet.code.formatters.Plain;
-import hexlet.code.formatters.Stylish;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -20,13 +16,7 @@ public class Differ {
         assert mapFile1 != null;
         assert mapFile2 != null;
         var diff = genDiff(mapFile1, mapFile2);
-        if (format.equals("stylish")) {
-            return Stylish.formatStylish(diff);
-        }
-        if (format.equals("plain")) {
-            return Plain.formatPlain(diff);
-        }
-        return null;
+        return Formatter.format(diff, format);
     }
     public static Map<String, List<Object>> genDiff(Map<String, Object> mapFile1, Map<String, Object> mapFile2) {
         Set<String> keys = new TreeSet<>();

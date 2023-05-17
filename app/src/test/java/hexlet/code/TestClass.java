@@ -2,7 +2,6 @@ package hexlet.code;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 import org.junit.jupiter.api.Test;
 
