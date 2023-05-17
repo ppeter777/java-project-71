@@ -1,10 +1,9 @@
 package hexlet.code;
 
-import static hexlet.code.Differ.genDiff;
-import static hexlet.code.Formatter.formatPlain;
-import static hexlet.code.Formatter.formatStylish;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -33,9 +32,7 @@ public class TestClass {
         Property 'setting2' was updated. From 200 to 300
         Property 'setting3' was updated. From true to none
         """;
-        var mapFile1 = Parser.parse(file1);
-        var mapFile2 = Parser.parse(file2);
-        var actual = formatPlain(genDiff(mapFile1, mapFile2));
+        var actual = Differ.generate(file1, file2, "plain");
         assertEquals(expected, actual);
     }
 
@@ -69,9 +66,7 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var mapFile1 = Parser.parse(file1);
-        var mapFile2 = Parser.parse(file2);
-        var actual = formatStylish(genDiff(mapFile1, mapFile2));
+        var actual = Differ.generate(file1, file2, "stylish");
         assertEquals(expected, actual);
     }
 
@@ -105,9 +100,7 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var mapFile1 = Parser.parse(file1);
-        var mapFile2 = Parser.parse(file2);
-        var actual = formatStylish(genDiff(mapFile1, mapFile2));
+        var actual = Differ.generate(file1, file2, "stylish");
         assertEquals(expected, actual);
     }
 
@@ -137,7 +130,7 @@ public class TestClass {
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "1");
-        String actual = formatStylish(genDiff(input1, input2));
+        String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n   key1: 1\n}";
         assertEquals(expected, actual);
     }
@@ -147,7 +140,7 @@ public class TestClass {
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "11");
-        String actual = formatStylish(genDiff(input1, input2));
+        String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n - key1: 1\n + key1: 11\n}";
         assertEquals(expected, actual);
     }
@@ -158,7 +151,7 @@ public class TestClass {
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key1", "1");
         input2.put("key3", "3");
-        String actual = formatStylish(genDiff(input1, input2));
+        String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n   key1: 1\n + key3: 3\n}";
         assertEquals(expected, actual);
     }
@@ -170,7 +163,7 @@ public class TestClass {
         input1.put("key2", "2");
         Map<String, Object> input2 = new HashMap<>();
         input2.put("key2", "2");
-        String actual = formatStylish(genDiff(input1, input2));
+        String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n - key1: 1\n   key2: 2\n}";
         assertEquals(expected, actual);
     }

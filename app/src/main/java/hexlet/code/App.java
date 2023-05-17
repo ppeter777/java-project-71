@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Stylish;
+import hexlet.code.formatters.Plain;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -23,22 +25,14 @@ class App implements Callable {
     private File file2 = new File("/etc/hosts");
 
     public static void main(String... args) {
-        //System.out.println("Hello World!");
 
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
     @Override
     public Object call() throws Exception {
-        var mapFile1 = Parser.parse(file1);
-        var mapFile2 = Parser.parse(file2);
-        var diff = Differ.genDiff(mapFile1, mapFile2);
-        if (format.equals("stylish")) {
-            System.out.println(Formatter.formatStylish(diff));
-        }
-        if (format.equals("plain")) {
-            System.out.println(Formatter.formatPlain(diff));
-        }
+        var diff = Differ.generate(file1, file2, format);
+        System.out.println(diff);
         return null;
     }
 }
