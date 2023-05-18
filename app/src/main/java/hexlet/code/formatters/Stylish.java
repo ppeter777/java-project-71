@@ -21,6 +21,7 @@ public class Stylish {
                 case "unchanged" -> addLine(stringBuilder, "   ", key, Utils.valueToString(value1));
                 case "added" -> addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
                 case "deleted" -> addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
+                default -> throw new IllegalStateException("Unexpected value: " + tag);
             }
         }
         stringBuilder.append("}");

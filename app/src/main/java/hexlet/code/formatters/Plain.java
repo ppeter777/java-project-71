@@ -31,6 +31,7 @@ public class Plain {
                     stringBuilder.append(value2).append("\n");
                 }
                 case "deleted" -> stringBuilder.append("Property '").append(key).append("' was removed").append("\n");
+                default -> throw new IllegalStateException("Unexpected value: " + tag);
             }
         }
         return stringBuilder.toString();
