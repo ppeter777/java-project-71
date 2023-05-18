@@ -9,9 +9,6 @@ import java.util.Map;
 
 public class Plain {
     public static String formatPlain(Map<String, List<Object>> diff) {
-        final var changed = "changed";
-        final var added = "added";
-        final var deleted = "deleted";
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, List<Object>> item : diff.entrySet()) {
             var key = item.getKey();
@@ -25,11 +22,15 @@ public class Plain {
             }
             var tag = Utils.valueToString(item.getValue().get(0));
             switch (tag) {
-                case changed -> {
-                    stringBuilder.append("Property '").append(key).append("' was updated. From ").append(value1).append(" to ").append(value2).append("\n");
+                case "changed" -> {
+                    stringBuilder.append("Property '").append(key).append("' was updated. From ");
+                    stringBuilder.append(value1).append(" to ").append(value2).append("\n");
                 }
-                case added -> stringBuilder.append("Property '").append(key).append("' was added with value: ").append(value2).append("\n");
-                case deleted -> stringBuilder.append("Property '").append(key).append("' was removed").append("\n");
+                case "added" -> {
+                    stringBuilder.append("Property '").append(key).append("' was added with value: ");
+                    stringBuilder.append(value2).append("\n");
+                }
+                case "deleted" -> stringBuilder.append("Property '").append(key).append("' was removed").append("\n");
             }
         }
         return stringBuilder.toString();

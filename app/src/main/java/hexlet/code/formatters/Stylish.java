@@ -6,10 +6,6 @@ import java.util.Map;
 
 public class Stylish {
     public static String formatStylish(Map<String, List<Object>> diff) {
-        final var unchanged = "unchanged";
-        final var changed = "changed";
-        final var added = "added";
-        final var deleted = "deleted";
 
         StringBuilder stringBuilder = new StringBuilder().append("{\n");
         for (Map.Entry<String, List<Object>> item: diff.entrySet()) {
@@ -18,13 +14,13 @@ public class Stylish {
             var value2 = item.getValue().get(2);
             var tag = Utils.valueToString(item.getValue().get(0));
             switch (tag) {
-                case changed -> {
+                case "changed" -> {
                     addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
                     addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
                 }
-                case unchanged -> addLine(stringBuilder, "   ", key, Utils.valueToString(value1));
-                case added -> addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
-                case deleted -> addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
+                case "unchanged" -> addLine(stringBuilder, "   ", key, Utils.valueToString(value1));
+                case "added" -> addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
+                case "deleted" -> addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
             }
         }
         stringBuilder.append("}");
