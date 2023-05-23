@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +20,8 @@ public class Differ {
         var diff = genDiff(parsedFile1, parsedFile2);
         return Formatter.format(diff, format);
     }
-    public static Map<String, List<Object>> genDiff(Map<String, Object> parsedFile1, Map<String, Object> parsedFile2) throws JsonProcessingException {
+    public static Map<String, List<Object>> genDiff(Map<String, Object> parsedFile1, Map<String, Object> parsedFile2)
+            throws JsonProcessingException {
         Set<String> keys = new TreeSet<>();
         keys.addAll(parsedFile1.keySet());
         keys.addAll(parsedFile2.keySet());
