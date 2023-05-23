@@ -18,9 +18,15 @@ public class TestClass {
         File file1 = new File("src/test/resources/file3.json");
         File file2 = new File("src/test/resources/file4.json");
         String expected = """
-        {"key1":["unchanged","1","1"],"key2":["changed","2","22"],"key3":["deleted","3",null],
-        """ + """
-        "key4":["deleted","4",null],"key5":["added",null,"5"]}""";
+                                  {"key1":["unchanged","1","1"],""" +
+                          """
+                                  "key2":["changed","2","22"],""" +
+                          """
+                                  "key3":["deleted","3",null],""" +
+                          """
+                                  "key4":["deleted","4",null],""" +
+                          """
+                                  "key5":["added",null,"5"]}""";
         var actual = Differ.generate(file1, file2, "json");
         assertEquals(expected, actual);
     }
@@ -123,6 +129,7 @@ public class TestClass {
         expected.put("key1", "1");
         expected.put("key2", "2");
         expected.put("key3", "3");
+        expected.put("key4", "4");
         var actual = Parser.parse(file);
         assertEquals(expected, actual);
     }
