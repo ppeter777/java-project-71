@@ -2,6 +2,7 @@ package hexlet.code;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import hexlet.code.formatters.Stylish;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestClass {
+
+    @Test
+    public void differJsonOutput() throws IOException {
+        File file1 = new File("src/test/resources/file3.json");
+        File file2 = new File("src/test/resources/file4.json");
+        String expected = """
+        {"key1":["unchanged","1","1"],"key2":["changed","2","22"],"key3":["deleted","3",null],"key4":["deleted","4",null],"key5":["added",null,"5"]}""";
+        var actual = Differ.generate(file1, file2, "json");
+        assertEquals(expected, actual);
+    }
+
 
     @Test
     public void differPlainJSON() throws IOException {
@@ -124,7 +136,7 @@ public class TestClass {
         assertEquals(expected, actual);
     }
     @Test
-    public void unchangedTest() {
+    public void unchangedTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
@@ -134,7 +146,7 @@ public class TestClass {
         assertEquals(expected, actual);
     }
     @Test
-    void modificationTest() {
+    void modificationTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
@@ -144,7 +156,7 @@ public class TestClass {
         assertEquals(expected, actual);
     }
     @Test
-    void additionTest() {
+    void additionTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
         input1.put("key1", "1");
         Map<String, Object> input2 = new HashMap<>();
@@ -156,7 +168,7 @@ public class TestClass {
     }
 
     @Test
-    void removalTest() {
+    void removalTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
         input1.put("key1", "1");
         input1.put("key2", "2");
@@ -166,5 +178,4 @@ public class TestClass {
         String expected = "{\n - key1: 1\n   key2: 2\n}";
         assertEquals(expected, actual);
     }
-
 }

@@ -23,12 +23,12 @@ class App implements Callable {
     private File file2 = new File("/etc/hosts");
 
     public static void main(String... args) {
-
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
     @Override
     public Object call() throws Exception {
+        System.out.println(format);
         var diff = Differ.generate(file1, file2, format);
         System.out.println(diff);
         return null;
