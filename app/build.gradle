@@ -57,6 +57,5 @@ jacocoTestReport {
 }
 
 checkstyle {
-    configFile file('config/checkstyle/checkstyle.xml');
-    toolVersion '8.2';    // your choice here
+    toolVersion '8.2';
 }
