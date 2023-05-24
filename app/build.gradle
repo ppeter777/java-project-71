@@ -55,7 +55,3 @@ jacocoTestReport {
         xml.required = true
     }
 }
-
-checkstyle {
-    toolVersion '8.2';
-}
