@@ -11,6 +11,6 @@ https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
 
 ### Примеры работы
 
-Сравнение плоских файлов (JSON): https://asciinema.org/a/DhQ9UBc0t7wgcEJ7qswYHm2MN
+Сравнение плоских файлов (JSON): https://asciinema.org/a/jQkaVWfDj2EzOWWXKHEh8HMs9
 
 https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
