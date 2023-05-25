@@ -1,5 +1,3 @@
-https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
-
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/ppeter777/java-project-71/workflows/hexlet-check/badge.svg)](https://github.com/ppeter777/java-project-71/actions)
 
@@ -25,4 +23,8 @@ https://asciinema.org/a/7J6O8BrMYSfcGQfBsKDihqyXG
 
 Вывод в результата сравнения в формате plain:
 https://asciinema.org/a/4A8L3xcV9mugWPBgIkYPzfehl
+
+Вывод в результата сравнения в формате plain:
+https://asciinema.org/a/CYrNoCiBBQIvLOBb5dsXAh26v
+
 
