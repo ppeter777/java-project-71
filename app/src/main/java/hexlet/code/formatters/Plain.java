@@ -38,6 +38,6 @@ public class Plain {
                 default -> { }
             }
         }
-        return stringBuilder.toString();
+        return stringBuilder.toString().trim();
     }
 }
