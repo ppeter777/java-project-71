@@ -16,9 +16,13 @@ public class Plain {
             var value2 = item.getValue().get(2);
             if (value1 instanceof ArrayList<?> || value1 instanceof LinkedHashMap<?, ?>) {
                 value1 = "[complex value]";
+            } else if (value1 instanceof String) {
+                value1 = "'" + value1 + "'";
             }
             if (value2 instanceof ArrayList<?> || value2 instanceof LinkedHashMap<?, ?>) {
                 value2 = "[complex value]";
+            } else if (value2 instanceof String) {
+                value2 = "'" + value2 + "'";
             }
             var tag = Utils.valueToString(item.getValue().get(0));
             switch (tag) {
