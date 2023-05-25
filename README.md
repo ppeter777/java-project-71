@@ -26,13 +26,18 @@
     make install
 
 ### Запуск
+
 Сравнение файлов JSON:  
     ./build/install/app/bin/app filepath1.json filepath2.json
+
 Сравнение файлов yaml:  
     ./build/install/app/bin/app filepath1.yaml filepath2.yaml
+
 По умолчанию вывод результата сравнения производится в формате stylish.  
+
 Вывод результата сравнения в формате plain:  
     ./build/install/app/bin/app -f plain filepath1 filepath2  
+
 Вывод результата сравнения в формате json:
     ./build/install/app/bin/app -f json filepath1 filepath2
     
