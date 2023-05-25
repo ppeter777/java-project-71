@@ -14,3 +14,5 @@ https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
 Сравнение плоских файлов (JSON): https://asciinema.org/a/jQkaVWfDj2EzOWWXKHEh8HMs9
 
 Сравнение плоских файлов (yaml): https://asciinema.org/a/yFLcW3B7UngZOlq4qUMp9Fc0h
+
+Сравнение файлов, имеющих вложенные структуры (JSON): https://asciinema.org/a/tLoqIe46XJgfdmEQbQyyyDT26
