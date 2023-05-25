@@ -16,3 +16,6 @@ https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
 Сравнение плоских файлов (yaml): https://asciinema.org/a/yFLcW3B7UngZOlq4qUMp9Fc0h
 
 Сравнение файлов, имеющих вложенные структуры (JSON): https://asciinema.org/a/tLoqIe46XJgfdmEQbQyyyDT26
+
+Сравнение файлов, имеющих вложенные структуры (yaml): https://asciinema.org/a/7J6O8BrMYSfcGQfBsKDihqyXG
+
