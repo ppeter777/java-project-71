@@ -1,4 +1,5 @@
 ### Hexlet tests and linter status:
+
 [![Actions Status](https://github.com/ppeter777/java-project-71/workflows/hexlet-check/badge.svg)](https://github.com/ppeter777/java-project-71/actions)
 
 [![Github Actions](https://github.com/ppeter777/java-project-71/actions/workflows/my_workflow.yml/badge.svg)](https://github.com/ppeter777/java-project-71/actions/workflows/my_workflow.yml)
@@ -6,6 +7,30 @@
 <a href="https://codeclimate.com/github/ppeter777/java-project-71/maintainability"><img src="https://api.codeclimate.com/v1/badges/06476602d8f5343b1456/maintainability" /></a>
 
 <a href="https://codeclimate.com/github/ppeter777/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/06476602d8f5343b1456/test_coverage" /></a> 
+
+### Описание
+
+Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн-сервисов, например: http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+
+### Возможности утилиты:
+
+Поддержка разных входных форматов: yaml и json
+Генерация отчета в виде plain text, stylish и json
+
+### Установка
+
+    git clone git@github.com:ppeter777/java-project-71.git
+    cd java-project-71/app
+    make install
+
+### Запуск
+
+    ./build/install/app/bin/app filepath1.json filepath2.json или
+    ./build/install/app/bin/app filepath1.json filepath2.json
+    
+### Вызов справки
+
+    ./build/install/app/bin/app -h
 
 ### Примеры работы
 
