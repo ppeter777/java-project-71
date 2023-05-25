@@ -135,7 +135,7 @@ public class TestClass {
     }
     @Test
     public void parserYAMLTest() throws IOException {
-        File file = new File("src/test/resources/file1.yaml");
+        File file = new File("src/test/resources/file1Flat.yaml");
         Map<String, Object> expected = new HashMap<>();
         expected.put("name", "project2");
         expected.put("host", "hexlet.io");
