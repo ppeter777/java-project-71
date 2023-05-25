@@ -10,12 +10,14 @@
 
 ### Описание
 
-Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн-сервисов, например: http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+    Вычислитель отличий – программа, определяющая разницу между двумя структурами данных.
+    Это популярная задача, для решения которой существует множество онлайн-сервисов, например: http://www.jsondiff.com/.
+    Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
 
 ### Возможности утилиты:
 
-Поддержка разных входных форматов: yaml и json
-Генерация отчета в виде plain text, stylish и json
+    Поддержка разных входных форматов: yaml и json
+    Генерация отчета в виде plain text, stylish и json
 
 ### Установка
 
@@ -34,22 +36,22 @@
 
 ### Примеры работы
 
-Сравнение плоских файлов (JSON):
-https://asciinema.org/a/jQkaVWfDj2EzOWWXKHEh8HMs9
+    Сравнение плоских файлов (JSON):
+    https://asciinema.org/a/jQkaVWfDj2EzOWWXKHEh8HMs9
 
-Сравнение плоских файлов (yaml):
-https://asciinema.org/a/yFLcW3B7UngZOlq4qUMp9Fc0h
+    Сравнение плоских файлов (yaml):
+    https://asciinema.org/a/yFLcW3B7UngZOlq4qUMp9Fc0h
 
-Сравнение файлов, имеющих вложенные структуры (JSON):
-https://asciinema.org/a/tLoqIe46XJgfdmEQbQyyyDT26
+    Сравнение файлов, имеющих вложенные структуры (JSON):
+    https://asciinema.org/a/tLoqIe46XJgfdmEQbQyyyDT26
 
-Сравнение файлов, имеющих вложенные структуры (yaml):
-https://asciinema.org/a/7J6O8BrMYSfcGQfBsKDihqyXG
+    Сравнение файлов, имеющих вложенные структуры (yaml):
+    https://asciinema.org/a/7J6O8BrMYSfcGQfBsKDihqyXG
 
-Вывод в результата сравнения в формате plain:
-https://asciinema.org/a/4A8L3xcV9mugWPBgIkYPzfehl
+    Вывод в результата сравнения в формате plain:
+    https://asciinema.org/a/4A8L3xcV9mugWPBgIkYPzfehl
 
-Вывод в результата сравнения в формате plain:
-https://asciinema.org/a/CYrNoCiBBQIvLOBb5dsXAh26v
+    Вывод в результата сравнения в формате plain:
+    https://asciinema.org/a/CYrNoCiBBQIvLOBb5dsXAh26v
 
 
