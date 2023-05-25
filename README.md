@@ -9,3 +9,8 @@ https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
 
 <a href="https://codeclimate.com/github/ppeter777/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/06476602d8f5343b1456/test_coverage" /></a> 
 
+### Примеры работы
+
+Сравнение плоских файлов (JSON): https://asciinema.org/a/DhQ9UBc0t7wgcEJ7qswYHm2MN
+
+https://asciinema.org/a/ZcfxlWV5E6ZeA7myijvX8ypKB
