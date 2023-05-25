@@ -31,6 +31,4 @@ public class Stylish {
     public static void addLine(StringBuilder stringBuilder, String tag, String key, Object value) {
         stringBuilder.append(tag).append(key).append(": ").append(value).append("\n");
     }
-
-
 }

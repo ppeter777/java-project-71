@@ -36,5 +36,4 @@ public class Plain {
         }
         return stringBuilder.toString();
     }
-
 }
