@@ -46,6 +46,7 @@
 Вывод результата сравнения в формате json:
 
     ./build/install/app/bin/app -f json filepath1 filepath2  
+    
 ### Вызов справки
 
     ./build/install/app/bin/app -h
