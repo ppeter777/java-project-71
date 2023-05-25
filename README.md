@@ -53,22 +53,25 @@
 
 ### Примеры работы
 
-Сравнение плоских файлов (JSON):  
+Вывод справки (шаг 4):  
+https://asciinema.org/a/bBWn4RlvcsDFN8FTI5WhfrpI6
+
+Сравнение плоских файлов JSON (шаг 5):  
 https://asciinema.org/a/jQkaVWfDj2EzOWWXKHEh8HMs9
 
-Сравнение плоских файлов (yaml):  
+Сравнение плоских файлов yaml (шаг7):  
 https://asciinema.org/a/yFLcW3B7UngZOlq4qUMp9Fc0h
 
-Сравнение файлов, имеющих вложенные структуры (JSON):  
+Сравнение файлов JSON, имеющих вложенные структуры (шаг 8):  
 https://asciinema.org/a/tLoqIe46XJgfdmEQbQyyyDT26
 
-Сравнение файлов, имеющих вложенные структуры (yaml):  
+Сравнение файлов yaml, имеющих вложенные структуры (шаг 8):  
 https://asciinema.org/a/7J6O8BrMYSfcGQfBsKDihqyXG
 
-Вывод результата сравнения в формате plain:  
+Вывод результата сравнения в формате plain (шаг 9):  
 https://asciinema.org/a/4A8L3xcV9mugWPBgIkYPzfehl
 
-Вывод результата сравнения в формате json:  
+Вывод результата сравнения в формате json (шаг 10):  
 https://asciinema.org/a/CYrNoCiBBQIvLOBb5dsXAh26v
 
 
