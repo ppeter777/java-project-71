@@ -16,7 +16,7 @@ public class Parser {
             ObjectMapper jsonObjectMapper = new ObjectMapper();
             var typeReference = new TypeReference<TreeMap<String, Object>>() { };
             return jsonObjectMapper.readValue(file, typeReference);
-        } else if (fileExtension.equals("yaml")) {
+        } else if (fileExtension.equals("yaml") || fileExtension.equals("yml") ) {
             ObjectMapper yamlObjectMapper = new YAMLMapper();
             var typeReference = new TypeReference<TreeMap<String, Object>>() { };
             return yamlObjectMapper.readValue(file, typeReference);
