@@ -17,10 +17,10 @@ class App implements Callable {
     private String format;
 
     @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file", defaultValue = "/etc/hosts")
-    private File file1 = new File("/etc/hosts");
+    private String filepath1;
 
     @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file", defaultValue = "/etc/hosts")
-    private File file2 = new File("/etc/hosts");
+    private String filepath2;
 
     public static void main(String... args) {
         int exitCode = new CommandLine(new App()).execute(args);
@@ -28,8 +28,10 @@ class App implements Callable {
     }
     @Override
     public Object call() throws Exception {
-        var diff = Differ.generate(file1, file2, format);
-        System.out.println(diff);
+        // var diff = Differ.generate(file1, file2, format);
+        var diff = Differ.generate(filepath1, filepath2);
+        var formattedDiff = Formatter.format(diff, format);
+        System.out.println(formattedDiff);
         return null;
     }
 }

@@ -15,8 +15,8 @@ public class TestClass {
 
     @Test
     public void differJsonOutput() throws IOException {
-        File file1 = new File("src/test/resources/file3.json");
-        File file2 = new File("src/test/resources/file4.json");
+        String filepath1 = "src/test/resources/file3.json";
+        String filepath2 = "src/test/resources/file4.json";
         String expected = """
                                   {"key1":["unchanged","1","1"],"""
                           + """
@@ -27,14 +27,14 @@ public class TestClass {
                                   "key4":["deleted","4",null],"""
                           + """
                                   "key5":["added",null,"5"]}""";
-        var actual = Differ.generate(file1, file2, "json");
+        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "json");
         assertEquals(expected, actual);
     }
 
     @Test
     public void differPlainJSON() throws IOException {
-        File file1 = new File("src/test/resources/file1Nested.json");
-        File file2 = new File("src/test/resources/file2Nested.json");
+        String filepath1 = "src/test/resources/file1Nested.json";
+        String filepath2 = "src/test/resources/file2Nested.json";
         String expected = """
             Property 'chars2' was updated. From [complex value] to false
             Property 'checked' was updated. From false to true
@@ -49,14 +49,14 @@ public class TestClass {
             Property 'setting1' was updated. From 'Some value' to 'Another value'
             Property 'setting2' was updated. From 200 to 300
             Property 'setting3' was updated. From true to 'none'""";
-        var actual = Differ.generate(file1, file2, "plain");
+        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "plain");
         assertEquals(expected, actual);
     }
 
     @Test
     public void differNestedJSON() throws IOException {
-        File file1 = new File("src/test/resources/file1Nested.json");
-        File file2 = new File("src/test/resources/file2Nested.json");
+        String filepath1 = "src/test/resources/file1Nested.json";
+        String filepath2 = "src/test/resources/file2Nested.json";
         String expected = """
                 {
                    chars1: [a, b, c]
@@ -83,14 +83,14 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var actual = Differ.generate(file1, file2, "stylish");
+        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "stylish");
         assertEquals(expected, actual);
     }
 
     @Test
     public void differNestedYAML() throws IOException {
-        File file1 = new File("src/test/resources/file1Nested.yaml");
-        File file2 = new File("src/test/resources/file2Nested.yaml");
+        String filepath1 = "src/test/resources/file1Nested.yaml";
+        String filepath2 = "src/test/resources/file2Nested.yaml";
         String expected = """
                 {
                    chars1: [a, b, c]
@@ -117,7 +117,7 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var actual = Differ.generate(file1, file2, "stylish");
+        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "stylish");
         assertEquals(expected, actual);
     }
 
