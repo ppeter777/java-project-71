@@ -133,9 +133,10 @@ public class TestClass {
 
     @Test
     public void parserYAMLTest() throws IOException {
+        final int a = 50;
         File file = new File("src/test/resources/file1Flat.yaml");
         Map<String, Object> expected = Map.of("name", "project2",
-                "host", "hexlet.io","timeout", 50);
+                "host", "hexlet.io", "timeout", a);
         var actual = Parser.parse(file);
         assertEquals(expected, actual);
     }
