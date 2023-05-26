@@ -134,20 +134,16 @@ public class TestClass {
     @Test
     public void parserYAMLTest() throws IOException {
         File file = new File("src/test/resources/file1Flat.yaml");
-        Map<String, Object> expected = new HashMap<>();
-        expected.put("name", "project2");
-        expected.put("host", "hexlet.io");
-        expected.put("timeout", 50);
+        Map<String, Object> expected = Map.of("name", "project2",
+                "host", "hexlet.io","timeout", 50);
         var actual = Parser.parse(file);
         assertEquals(expected, actual);
     }
 
     @Test
     public void unchangedTest() throws JsonProcessingException {
-        Map<String, Object> input1 = new HashMap<>();
-        input1.put("key1", "1");
-        Map<String, Object> input2 = new HashMap<>();
-        input2.put("key1", "1");
+        Map<String, Object> input1 = Map.of("key1", "1");
+        Map<String, Object> input2 = Map.of("key1", "1");
         String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n    key1: 1\n}";
         assertEquals(expected, actual);
@@ -155,21 +151,16 @@ public class TestClass {
 
     @Test
     void modificationTest() throws JsonProcessingException {
-        Map<String, Object> input1 = new HashMap<>();
-        input1.put("key1", "1");
-        Map<String, Object> input2 = new HashMap<>();
-        input2.put("key1", "11");
+        Map<String, Object> input1 = Map.of("key1", "1");
+        Map<String, Object> input2 = Map.of("key1", "11");
         String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n  - key1: 1\n  + key1: 11\n}";
         assertEquals(expected, actual);
     }
     @Test
     void additionTest() throws JsonProcessingException {
-        Map<String, Object> input1 = new HashMap<>();
-        input1.put("key1", "1");
-        Map<String, Object> input2 = new HashMap<>();
-        input2.put("key1", "1");
-        input2.put("key3", "3");
+        Map<String, Object> input1 = Map.of("key1", "1");
+        Map<String, Object> input2 = Map.of("key1", "1", "key3", "3");
         String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n    key1: 1\n  + key3: 3\n}";
         assertEquals(expected, actual);
@@ -177,11 +168,8 @@ public class TestClass {
 
     @Test
     void removalTest() throws JsonProcessingException {
-        Map<String, Object> input1 = new HashMap<>();
-        input1.put("key1", "1");
-        input1.put("key2", "2");
-        Map<String, Object> input2 = new HashMap<>();
-        input2.put("key2", "2");
+        Map<String, Object> input1 = Map.of("key1", "1", "key2", "2");
+        Map<String, Object> input2 = Map.of("key2", "2");
         String actual = Stylish.formatStylish(Differ.genDiff(input1, input2));
         String expected = "{\n  - key1: 1\n    key2: 2\n}";
         assertEquals(expected, actual);
