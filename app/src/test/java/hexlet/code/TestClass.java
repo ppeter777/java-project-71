@@ -1,11 +1,9 @@
 package hexlet.code;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import hexlet.code.formatters.Stylish;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -27,7 +25,7 @@ public class TestClass {
                                   "key4":["deleted","4",null],"""
                           + """
                                   "key5":["added",null,"5"]}""";
-        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "json");
+        var actual = Differ.generate(filepath1, filepath2, "json");
         assertEquals(expected, actual);
     }
 
@@ -49,7 +47,7 @@ public class TestClass {
             Property 'setting1' was updated. From 'Some value' to 'Another value'
             Property 'setting2' was updated. From 200 to 300
             Property 'setting3' was updated. From true to 'none'""";
-        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "plain");
+        var actual = Differ.generate(filepath1, filepath2, "plain");
         assertEquals(expected, actual);
     }
 
@@ -83,7 +81,7 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "stylish");
+        var actual = Differ.generate(filepath1, filepath2, "stylish");
         assertEquals(expected, actual);
     }
 
@@ -117,7 +115,7 @@ public class TestClass {
                  - setting3: true
                  + setting3: none
                 }""";
-        var actual = Formatter.format(Differ.generate(filepath1, filepath2), "stylish");
+        var actual = Differ.generate(filepath1, filepath2, "stylish");
         assertEquals(expected, actual);
     }
 
