@@ -130,6 +130,7 @@ public class TestClass {
         var actual = Parser.parse(file);
         assertEquals(expected, actual);
     }
+
     @Test
     public void parserYAMLTest() throws IOException {
         File file = new File("src/test/resources/file1Flat.yaml");
@@ -140,6 +141,7 @@ public class TestClass {
         var actual = Parser.parse(file);
         assertEquals(expected, actual);
     }
+
     @Test
     public void unchangedTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
@@ -150,6 +152,7 @@ public class TestClass {
         String expected = "{\n   key1: 1\n}";
         assertEquals(expected, actual);
     }
+
     @Test
     void modificationTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();
@@ -160,6 +163,7 @@ public class TestClass {
         String expected = "{\n - key1: 1\n + key1: 11\n}";
         assertEquals(expected, actual);
     }
+    
     @Test
     void additionTest() throws JsonProcessingException {
         Map<String, Object> input1 = new HashMap<>();

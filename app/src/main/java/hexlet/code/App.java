@@ -15,10 +15,10 @@ class App implements Callable {
             description = "output format [default: ${DEFAULT-VALUE}]", defaultValue = "stylish")
     private String format;
 
-    @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file", defaultValue = "/etc/hosts")
+    @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
 
-    @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file", defaultValue = "/etc/hosts")
+    @Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
     private String filepath2;
 
     public static void main(String... args) {

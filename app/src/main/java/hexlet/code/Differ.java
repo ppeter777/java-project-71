@@ -21,6 +21,17 @@ public class Differ {
         var diff = genDiff(parsedFile1, parsedFile2);
         return Formatter.format(diff, format);
     }
+    public static String generate(String filepath1, String filepath2) throws IOException {
+        File file1 = new File(filepath1);
+        File file2 = new File(filepath2);
+        var parsedFile1 = Parser.parse(file1);
+        var parsedFile2 = Parser.parse(file2);
+        assert parsedFile1 != null;
+        assert parsedFile2 != null;
+        var diff = genDiff(parsedFile1, parsedFile2);
+        return Formatter.format(diff, "stylish");
+    }
+
     public static Map<String, List<Object>> genDiff(Map<String, Object> parsedFile1, Map<String, Object> parsedFile2)
             throws JsonProcessingException {
         Set<String> keys = new TreeSet<>();
