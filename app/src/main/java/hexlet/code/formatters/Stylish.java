@@ -15,12 +15,12 @@ public class Stylish {
             var tag = Utils.valueToString(item.getValue().get(0));
             switch (tag) {
                 case "changed" -> {
-                    addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
-                    addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
+                    addLine(stringBuilder, "  - ", key, Utils.valueToString(value1));
+                    addLine(stringBuilder, "  + ", key, Utils.valueToString(value2));
                 }
-                case "unchanged" -> addLine(stringBuilder, "   ", key, Utils.valueToString(value1));
-                case "added" -> addLine(stringBuilder, " + ", key, Utils.valueToString(value2));
-                case "deleted" -> addLine(stringBuilder, " - ", key, Utils.valueToString(value1));
+                case "unchanged" -> addLine(stringBuilder, "    ", key, Utils.valueToString(value1));
+                case "added" -> addLine(stringBuilder, "  + ", key, Utils.valueToString(value2));
+                case "deleted" -> addLine(stringBuilder, "  - ", key, Utils.valueToString(value1));
                 default -> { }
             }
         }
