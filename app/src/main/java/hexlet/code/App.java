@@ -26,7 +26,7 @@ class App implements Callable {
         System.exit(exitCode);
     }
     @Override
-    public Object call(){
+    public Object call() {
         String diff;
         try {
             diff = Differ.generate(filepath1, filepath2, format);

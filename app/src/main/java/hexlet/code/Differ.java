@@ -21,6 +21,10 @@ public class Differ {
         return Formatter.format(diff, format);
     }
 
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
+
     public static String fileToString(String filepath) throws Exception {
         Path path = Paths.get(filepath);
         if (!Files.exists(path)) {

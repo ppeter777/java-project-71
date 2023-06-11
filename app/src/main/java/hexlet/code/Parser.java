@@ -4,9 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
-import org.apache.commons.io.FilenameUtils;
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -24,8 +21,7 @@ public class Parser {
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
         try {
             return jsonObjectMapper.readValue(fileContent, typeReference);
-        }
-        catch (JsonProcessingException e) {
+        } catch (JsonProcessingException e) {
             throw new Exception("Json processing error!");
         }
     }
@@ -34,8 +30,7 @@ public class Parser {
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
         try {
             return yamlObjectMapper.readValue(fileContent, typeReference);
-        }
-        catch (JsonProcessingException e) {
+        } catch (JsonProcessingException e) {
             throw new Exception("Yaml processing error!");
         }
     }
