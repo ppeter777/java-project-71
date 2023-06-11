@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Formatter {
 
-    public static String format(Map<String, List<Object>> diff, String format) throws JsonProcessingException {
+    public static String format(Map<String, List<Object>> diff, String format) throws Exception {
         if (format.equals("stylish")) {
             return Stylish.formatStylish(diff);
         }
@@ -19,6 +19,6 @@ public class Formatter {
         if (format.equals("json")) {
             return Json.formatJson(diff);
         }
-        return null;
+        throw new Exception("Unsupported format '" + format + "'");
     }
 }

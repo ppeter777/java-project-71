@@ -26,10 +26,16 @@ class App implements Callable {
         System.exit(exitCode);
     }
     @Override
-    public Object call() throws Exception {
-        var diff = Differ.generate(filepath1, filepath2, format);
+    public Object call(){
+        String diff;
+        try {
+            diff = Differ.generate(filepath1, filepath2, format);
+        } catch (Exception e) {
+            System.out.println(e);
+            return 1;
+        }
         System.out.println(diff);
-        return null;
+        return 0;
     }
 }
 
