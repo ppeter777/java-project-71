@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.TreeMap;
+import java.util.Map;
+import java.util.List;
+import java.util.Set;
 
 public class GenDiff {
     public static List<Map<String, Object>> genDiff(Map<String, Object> parsedFile1, Map<String, Object> parsedFile2) {

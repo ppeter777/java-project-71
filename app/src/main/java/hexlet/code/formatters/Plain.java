@@ -1,6 +1,9 @@
 package hexlet.code.formatters;
 
-import java.util.*;
+import java.util.Map;
+import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.ArrayList;
 
 public class Plain {
     public static String formatPlain(List<Map<String, Object>> diff) throws Exception {
