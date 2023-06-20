@@ -16,22 +16,15 @@ public class Parser {
         }
         throw new Exception("File extension '" + fileExtension + "' is not supported!");
     }
-    public static Map<String, Object> parseJson(String fileContent) throws Exception {
+
+    public static Map<String, Object> parseJson(String fileContent) throws JsonProcessingException {
         ObjectMapper jsonObjectMapper = new ObjectMapper();
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
-        try {
-            return jsonObjectMapper.readValue(fileContent, typeReference);
-        } catch (JsonProcessingException e) {
-            throw new Exception("Json processing error!");
-        }
+        return jsonObjectMapper.readValue(fileContent, typeReference);
     }
-    public static Map<String, Object> parseYaml(String fileContent) throws Exception {
+    public static Map<String, Object> parseYaml(String fileContent) throws JsonProcessingException {
         ObjectMapper yamlObjectMapper = new YAMLMapper();
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
-        try {
-            return yamlObjectMapper.readValue(fileContent, typeReference);
-        } catch (JsonProcessingException e) {
-            throw new Exception("Yaml processing error!");
-        }
+        return yamlObjectMapper.readValue(fileContent, typeReference);
     }
 }

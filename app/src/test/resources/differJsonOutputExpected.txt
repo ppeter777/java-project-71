@@ -1,1 +1,7 @@
-{"key1":["unchanged","1","1"],"key2":["changed","2","22"],"key3":["deleted","3",null],"key4":["deleted","4",null],"key5":["added",null,"5"]}
+{
+"key1": {"type":"unchanged","value1":"1"},
+"key2": {"type":"changed","value1":"2","value2":"22"},
+"key3": {"type":"deleted","value1":"3"},
+"key4": {"type":"deleted","value1":"4"},
+"key5": {"type":"added","value2":"5"}
+}
