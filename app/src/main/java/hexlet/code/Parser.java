@@ -22,6 +22,7 @@ public class Parser {
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
         return jsonObjectMapper.readValue(fileContent, typeReference);
     }
+
     public static Map<String, Object> parseYaml(String fileContent) throws JsonProcessingException {
         ObjectMapper yamlObjectMapper = new YAMLMapper();
         var typeReference = new TypeReference<TreeMap<String, Object>>() { };
