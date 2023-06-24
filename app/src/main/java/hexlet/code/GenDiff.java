@@ -1,11 +1,6 @@
 package hexlet.code;
 
-import java.util.TreeSet;
-import java.util.ArrayList;
-import java.util.TreeMap;
-import java.util.Map;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GenDiff {
     public static List<Map<String, Object>> genDiff(Map<String, Object> parsedFile1, Map<String, Object> parsedFile2) {
@@ -15,27 +10,22 @@ public class GenDiff {
         keys.addAll(parsedFile2.keySet());
 
         for (var key : keys) {
-            Map<String, Object> diffLine = new TreeMap<>();
+            Map<String, Object> diffLine = new LinkedHashMap<>();
             var value1 = parsedFile1.get(key);
             var value2 = parsedFile2.get(key);
-            if (parsedFile1.containsKey(key) && parsedFile2.containsKey(key)) {
-                if (valueToString(value1).equals(valueToString(value2))) {
-                    diffLine.put("type", "unchanged");
-                    diffLine.put("key", key);
-                    diffLine.put("value1", value1);
-                } else {
-                    diffLine.put("type", "changed");
-                    diffLine.put("key", key);
-                    diffLine.put("value1", value1);
-                    diffLine.put("value2", value2);
-                }
+            diffLine.put("key", key);
+            if (!parsedFile1.containsKey(key)) {
+                diffLine.put("type", "added");
+                diffLine.put("value2", value2);
             } else if (!parsedFile2.containsKey(key)) {
                 diffLine.put("type", "deleted");
-                diffLine.put("key", key);
+                diffLine.put("value1", value1);
+            } else if (isEqual(value1, value2)) {
+                diffLine.put("type", "unchanged");
                 diffLine.put("value1", value1);
             } else {
-                diffLine.put("type", "added");
-                diffLine.put("key", key);
+                diffLine.put("type", "changed");
+                diffLine.put("value1", value1);
                 diffLine.put("value2", value2);
             }
             diff.add(diffLine);
@@ -49,5 +39,12 @@ public class GenDiff {
         } else {
             return value.toString();
         }
+    }
+
+    public static Boolean isEqual(Object value1, Object value2) {
+        if (value1 != null) {
+            return value1.equals(value2);
+        }
+        return value2 == null;
     }
 }

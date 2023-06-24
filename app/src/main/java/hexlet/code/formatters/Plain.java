@@ -31,7 +31,7 @@ public class Plain {
     }
 
     public static String transform(Object value) {
-        if (value instanceof ArrayList<?> || value instanceof LinkedHashMap<?, ?>) {
+        if (value instanceof List<?> || value instanceof Map<?, ?>) {
             return  "[complex value]";
         } else if (value instanceof String) {
             return  "'" + value + "'";
@@ -40,4 +40,6 @@ public class Plain {
         }
         return value.toString();
     }
+
+
 }
