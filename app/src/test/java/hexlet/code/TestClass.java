@@ -74,6 +74,6 @@ public class TestClass {
     }
 
     public static String getFilePath(String filename) {
-       return "src/test/resources/" + filename;
+        return "src/test/resources/" + filename;
     }
 }
