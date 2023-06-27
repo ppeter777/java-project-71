@@ -14,8 +14,6 @@ public class Differ {
         String file2Extension = FilenameUtils.getExtension(filepath2);
         Map<String, Object> parsedFile1 = Parser.parse(file1Content, file1Extension);
         Map<String, Object> parsedFile2 = Parser.parse(file2Content, file2Extension);
-        assert parsedFile1 != null;
-        assert parsedFile2 != null;
         var diff2 = GenDiff.genDiff(parsedFile1, parsedFile2);
         return Formatter.format(diff2, format);
     }
@@ -24,15 +22,11 @@ public class Differ {
         return generate(filepath1, filepath2, "stylish");
     }
 
-    public static String fileToString(String filepath) throws Exception {
+    private static String fileToString(String filepath) throws Exception {
         return Files.readString(pathFromString(filepath));
     }
 
-    public static Path pathFromString(String filepath) throws Exception {
-        Path path = Paths.get(filepath).toAbsolutePath().normalize();
-        if (!Files.exists(path)) {
-            throw new Exception("File '" + path + "' does not exist");
-        }
-        return path;
+    private static Path pathFromString(String filepath) throws Exception {
+        return Paths.get(filepath).toAbsolutePath().normalize();
     }
 }

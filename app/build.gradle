@@ -40,6 +40,7 @@ dependencies {
     errorprone 'com.google.errorprone:error_prone_core:2.11.0'
     implementation group: 'commons-io', name: 'commons-io', version: '2.7'
     implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.7.1'
 }
 
 test {
