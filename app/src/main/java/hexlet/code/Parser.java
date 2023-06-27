@@ -17,11 +17,11 @@ public class Parser {
 
     private static Map<String, Object> parseJson(String fileContent) throws Exception {
         ObjectMapper jsonObjectMapper = new ObjectMapper();
-        return jsonObjectMapper.readValue(fileContent, new TypeReference<>() { } );
+        return jsonObjectMapper.readValue(fileContent, new TypeReference<>() { });
     }
 
     private static Map<String, Object> parseYaml(String fileContent) throws Exception {
         ObjectMapper yamlObjectMapper = new YAMLMapper();
-        return yamlObjectMapper.readValue(fileContent, new TypeReference<>() { } );
+        return yamlObjectMapper.readValue(fileContent, new TypeReference<>() { });
     }
 }
