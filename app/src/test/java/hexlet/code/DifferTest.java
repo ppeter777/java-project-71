@@ -21,52 +21,25 @@ public class DifferTest {
     }
 
     @Test
-    public void differJsonOutput() throws Exception {
+    public void differTest() throws Exception {
         Path filepathJson1 = getFilePath("file1.json");
         Path filepathJson2 = getFilePath("file2.json");
         Path filepathYaml1 = getFilePath("file1.yaml");
         Path filepathYaml2 = getFilePath("file2.yaml");
-        var actualJson = Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "json");
-        var actualJsonDefault = Differ.generate(filepathJson1.toString(), filepathJson2.toString());
-        var actualYaml = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "json");
-        var actualYamlDefault = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString());
+        assertEquals(resultStylishFormat,
+                Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "stylish"));
+        assertEquals(resultStylishFormat,
+                Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "stylish"));
+        assertEquals(resultStylishFormat, Differ.generate(filepathJson1.toString(), filepathJson2.toString()));
+        assertEquals(resultPlainFormat,
+                Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "plain"));
+        assertEquals(resultPlainFormat,
+                Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "plain"));
         ObjectMapper mapper = new ObjectMapper();
-        assertEquals(mapper.readTree(resultJsonFormat), mapper.readTree(actualJson));
-        assertEquals(resultStylishFormat, actualJsonDefault);
-        assertEquals(mapper.readTree(resultJsonFormat), mapper.readTree(actualYaml));
-        assertEquals(resultStylishFormat, actualYamlDefault);
-    }
-
-    @Test
-    public void differPlainOutput() throws Exception {
-        Path filepathJson1 = getFilePath("file1.json");
-        Path filepathJson2 = getFilePath("file2.json");
-        Path filepathYaml1 = getFilePath("file1.yaml");
-        Path filepathYaml2 = getFilePath("file2.yaml");
-        var actualJson = Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "plain");
-        var actualJsonDefault = Differ.generate(filepathJson1.toString(), filepathJson2.toString());
-        var actualYaml = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "plain");
-        var actualYamlDefault = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString());
-        assertEquals(resultPlainFormat, actualJson);
-        assertEquals(resultStylishFormat, actualJsonDefault);
-        assertEquals(resultPlainFormat, actualYaml);
-        assertEquals(resultStylishFormat, actualYamlDefault);
-    }
-
-    @Test
-    public void differStylishOutput() throws Exception {
-        Path filepathJson1 = getFilePath("file1.json");
-        Path filepathJson2 = getFilePath("file2.json");
-        Path filepathYaml1 = getFilePath("file1.yaml");
-        Path filepathYaml2 = getFilePath("file2.yaml");
-        var actualJson = Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "stylish");
-        var actualJsonDefault = Differ.generate(filepathJson1.toString(), filepathJson2.toString());
-        var actualYaml = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "stylish");
-        var actualYamlDefault = Differ.generate(filepathYaml1.toString(), filepathYaml2.toString());
-        assertEquals(resultStylishFormat, actualJson);
-        assertEquals(resultStylishFormat, actualJsonDefault);
-        assertEquals(resultStylishFormat, actualYaml);
-        assertEquals(resultStylishFormat, actualYamlDefault);
+        assertEquals(mapper.readTree(resultJsonFormat),
+                mapper.readTree(Differ.generate(filepathJson1.toString(), filepathJson2.toString(), "json")));
+        assertEquals(mapper.readTree(resultJsonFormat),
+                mapper.readTree(Differ.generate(filepathYaml1.toString(), filepathYaml2.toString(), "json")));
     }
 
     private static Path getFilePath(String filename) {
